@@ -1,13 +1,13 @@
-FROM rabbitmq:3.12-management
+FROM rabbitmq:3.13-management
 
 # Installe curl
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 # Variables
-ENV RABBITMQ_DELAYED_MSG_PLUGIN_VERSION=3.12.0
+ENV RABBITMQ_DELAYED_MSG_PLUGIN_VERSION=3.13.0
 
-# Téléchargement du plugin (compatible avec RabbitMQ 3.12)
-# https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/v3.12.0/rabbitmq_delayed_message_exchange-3.12.0.ez
+# Téléchargement du plugin (compatible avec RabbitMQ 3.13)
+# https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/v3.13.0/rabbitmq_delayed_message_exchange-3.13.0.ez
 RUN curl -L -o /opt/rabbitmq/plugins/rabbitmq_delayed_message_exchange-${RABBITMQ_DELAYED_MSG_PLUGIN_VERSION}.ez \
   https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/v${RABBITMQ_DELAYED_MSG_PLUGIN_VERSION}/rabbitmq_delayed_message_exchange-${RABBITMQ_DELAYED_MSG_PLUGIN_VERSION}.ez
 

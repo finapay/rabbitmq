@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-RABBITMQ_USER=guest
-RABBITMQ_PASS=guest
+RABBITMQ_USER=aymardkouakou
+RABBITMQ_PASS=wJ59PLAnawV.Hba
 RABBITMQ_HOST=rabbitmq
 RABBITMQ_API_PORT=15672
 EXCHANGE_NAME=delayed_exchange

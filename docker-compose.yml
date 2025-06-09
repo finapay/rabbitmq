@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   rabbitmq:
     build: .
@@ -6,8 +8,10 @@ services:
       - "5672:5672"     # Port AMQP
       - "15672:15672"   # Interface Web
     environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_USER: aymardkouakou
+      RABBITMQ_DEFAULT_PASS: wJ59PLAnawV.Hba
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
 
   init-rabbitmq: 
     image: alpine:latest
@@ -15,7 +19,7 @@ services:
       - rabbitmq
     volumes:
       - ./init.sh:/init.sh
-    entrypoint: [ "sh", "-c", "apk add --no-cache bash curl jq && chmod +x /init.sh && /init.sh" ]
+    command: sh -c "apk add --no-cache bash curl jq && chmod +x /init.sh && /init.sh"
 
 volumes:
   rabbitmq_data:
